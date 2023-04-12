@@ -36,7 +36,7 @@ This is a School Library project.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 💻 Getting Started with database <a name="getting-started"></a>
+## 💻 Getting Started with section <a name="getting-started"></a>
 
 ### Setup
 
