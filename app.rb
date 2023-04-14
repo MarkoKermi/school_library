@@ -93,7 +93,7 @@ class SchoolApp
   end
 
   def rental_creation
-    puts 'Select a book from the following list by name'
+    puts 'Select a book from the following list by number'
     @books.each_with_index { |book, index| puts "#{index}) #{book.title}, #{book.author}" }
 
     index_book = gets.chomp.to_i
