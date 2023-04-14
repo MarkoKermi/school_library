@@ -33,6 +33,10 @@ This is a School Library project.
 - **OOP Design Patterns**
 - **List rents**
 
+## 🚀 VIDEO USING PRY <a name="live-demo"></a>
+
+- [Using Pry video link](https://drive.google.com/file/d/1c1jqc_Ogq9xgTrKDRz5fV0qaUjgF0ygV/view?usp=share_link)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
