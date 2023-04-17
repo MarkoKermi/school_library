@@ -70,17 +70,6 @@ class SchoolApp
     puts 'Person was created successfully'
   end
 
-  def book_creation
-    print 'Title: '
-    title = gets.chomp
-
-    print 'Author: '
-    author = gets.chomp
-
-    @books.push(Book.new(title, author))
-    puts 'Book created successfully'
-  end
-
   def rental_creation
     puts 'Select a book from the following list by number'
     @books.each_with_index { |book, index| puts "#{index}) #{book.title}, #{book.author}" }
@@ -110,5 +99,16 @@ class SchoolApp
     @rentals.each do |rental|
       puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" if rental.person.id == id
     end
+  end
+
+  def book_creation
+    print 'Title: '
+    title = gets.chomp
+
+    print 'Author: '
+    author = gets.chomp
+
+    @books.push(Book.new(title, author))
+    puts 'Book created successfully'
   end
 end
