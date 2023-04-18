@@ -9,9 +9,17 @@ def main
     case option
     when 1..6
       refactor.items(option)
-    else
+    when 7
       puts 'Thank you for using this app!'
+      at_exit do
+        puts 'save all the things!!'
+      end
+    
+
       break
+    else
+      puts 'Ivalid Option.Please Try again.'
+      redo
     end
   end
 end

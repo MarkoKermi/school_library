@@ -5,6 +5,9 @@ require './teacher'
 require './rental'
 require './handle_data'
 require 'json'
+require 'pry'
+require './display_persons'
+require './create_person'
 
 class SchoolApp
   def initialize
@@ -12,6 +15,8 @@ class SchoolApp
     @people = []
     @rentals = []
     @books = @books_file.read.map { |arr| Book.new(arr['title'], arr['author']) }
+    @person = CreatePerson.new
+    @display_persons = Display_Persons.new(@person)
   end
 
   def welcome
@@ -33,11 +38,7 @@ class SchoolApp
   end
 
   def list_of_people
-    if @people.empty?
-      puts 'There is no people found'
-    else
-      @people.each { |person| person_display(person) }
-    end
+    @display_persons.display_all_persons
   end
 
   def add_person_info
@@ -50,28 +51,30 @@ class SchoolApp
     print 'Name: '
     name = gets.chomp
 
-    create_person(person_type, age, name)
+    @person.create_person(person_type, age, name)
   end
 
-  def create_person(person_type, age, name)
-    case person_type
-    when '1'
-      print 'Has parent permission? [Y/N]: '
-      parent_permission = gets.chomp.downcase == 'y'
-      print 'What is the student\'s classroom? '
-      classroom = gets.chomp
-      @people.push(Student.new(age, name, classroom, parent_permission: parent_permission))
-    when '2'
-      print 'Specialization: '
-      specialization = gets.chomp
-      @people.push(Teacher.new(age, name, specialization))
-    else
-      puts 'Invalid option'
-      add_person_info
-    end
 
-    puts 'Person was created successfully'
-  end
+
+  # def create_person(person_type, age, name)
+  #   case person_type
+  #   when '1'
+  #     print 'Has parent permission? [Y/N]: '
+  #     parent_permission = gets.chomp.downcase == 'y'
+  #     print 'What is the student\'s classroom? '
+  #     classroom = gets.chomp
+  #     @people.push(Student.new(age, name, classroom, parent_permission: parent_permission))
+  #   when '2'
+  #     print 'Specialization: '
+  #     specialization = gets.chomp
+  #     @people.push(Teacher.new(age, name, specialization))
+  #   else
+  #     puts 'Invalid option'
+  #     add_person_info
+  #   end
+
+  #   puts 'Person was created successfully'
+  # end
 
   def rental_creation
     puts 'Select a book from the following list by number'
@@ -113,6 +116,7 @@ class SchoolApp
 
     @books.push(Book.new(title, author))
     puts 'Book created successfully'
+    binding.pry
   end
 
   def exit 
