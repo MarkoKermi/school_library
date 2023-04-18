@@ -1,3 +1,5 @@
+require 'date'
+
 class Book
   attr_accessor :title, :author
   attr_reader :rentals
@@ -11,5 +13,9 @@ class Book
   def add_rental(rental)
     @rentals.push(rental)
     rental.book = self
+  end
+
+  def create_object
+    { title: @title, author: @author }
   end
 end

@@ -3,12 +3,15 @@ require './person'
 require './student'
 require './teacher'
 require './rental'
+require './handle_data'
+require 'json'
 
 class SchoolApp
   def initialize
-    @books = []
+    @books_file = HandleData.new('books')
     @people = []
     @rentals = []
+    @books = @books_file.read.map { |arr| Book.new(arr['title'], arr['author']) }
   end
 
   def welcome
@@ -110,5 +113,9 @@ class SchoolApp
 
     @books.push(Book.new(title, author))
     puts 'Book created successfully'
+  end
+
+  def exit 
+    @books_file.write(@books.map(&:create_object))
   end
 end
