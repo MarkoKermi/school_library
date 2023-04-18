@@ -61,13 +61,29 @@ Clone this [repository](https://github.com/MarkoKermi/school_library.git) to you
   - GitHub: [@MarkoKermi](https://github.com/MarkoKermi)
   - Twitter: [@twitterhandle](https://twitter.com/MarkoKerm)
   - LinkedIn: [LinkedIn](https://www.linkedin.com/in/marko-kermichiev/)
+  
+  
+👤 **Felix Adjei Sowah**
+
+- Github: [@githubhandle](https://github.com/Lancelot-SO)
+- Twitter: [@twitterhandle](https://twitter.com/Lancelot)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/felix-sowah)
+
+
+👤 **Moses Wamae**
+
+- GitHub: [@mosdevx](https://github.com/mosdevx)
+- Twitter: [@moseswamae7](https://twitter.com/moseswamae7)
+- LinkedIn: [LinkedIn](https://linkedin.com/in/moses-wamae-a13a67244)
+
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- [ ] **[set_up_associations]**
-- [ ] **[add_basic_UI]**
+- [ ] **[Implement File Storage]**
+- [ ] **[Implement Unit Tests]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
