@@ -14,7 +14,7 @@ class SchoolApp
     @books_file = HandleData.new('books')
     @people = []
     @rentals = []
-    @books = @books_file.read.map { |arr| Book.new(arr['title'], arr['author']) }
+    @books = @books_file.read.map{ |arr| Book.new(arr['title'], arr['author']) }
     @person = CreatePerson.new
     @display_persons = Display_Persons.new(@person)
   end
@@ -53,8 +53,6 @@ class SchoolApp
 
     @person.create_person(person_type, age, name)
   end
-
-
 
   # def create_person(person_type, age, name)
   #   case person_type
@@ -116,7 +114,6 @@ class SchoolApp
 
     @books.push(Book.new(title, author))
     puts 'Book created successfully'
-    binding.pry
   end
 
   def exit 

@@ -11,11 +11,7 @@ def main
       refactor.items(option)
     when 7
       puts 'Thank you for using this app!'
-      at_exit do
-        puts 'save all the things!!'
-      end
-    
-
+      refactor.app.exit 
       break
     else
       puts 'Ivalid Option.Please Try again.'
