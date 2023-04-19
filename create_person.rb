@@ -1,13 +1,13 @@
 require './person'
 require './student'
 require './teacher'
-
+require './file_storage.rb'
 
 class CreatePerson
   attr_accessor:all_persons
 
 	def initialize
-		@all_persons = []
+		@all_persons = HandleData.read('persons')
 	end
 	
 	def create_person(person_type, age, name)

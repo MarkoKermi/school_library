@@ -16,3 +16,4 @@ class HandleData
     File.write(@file_name, json)
   end
 end
+

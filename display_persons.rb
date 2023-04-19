@@ -14,7 +14,7 @@ class Display_Persons
 
 	def display_all_persons
     if @person_object.all_persons.empty?
-      puts 'There is no people found'
+      puts '<<>> No people found. Please add Teachers or Students. <<>>'
     else
       @person_object.all_persons.each { |person| person_display(person) }
     end
