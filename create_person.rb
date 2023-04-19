@@ -13,11 +13,9 @@ class CreatePerson
 
   def create_person_objects
     raw_data = HandleData.read('persons')
-
     persons = raw_data.map{|obj| 
-      puts obj
-      if obj.respond_to?(:specialization)
-      @all_persons.push(Teacher.new(obj.age, obj.name,obj.specialization,obj.parent_permission))
+      if obj.key?('specialization')
+      @all_persons.push(Teacher.new(age:obj["age"], name:obj['name'],specialization:obj['specialization'], parent_permission:obj['parent_permission']))
       else
       @all_persons.push(Student.new(age:obj["age"], name:obj['name'],classroom:obj['classroom'], parent_permission:obj['parent_permission']))
       end
@@ -26,7 +24,7 @@ class CreatePerson
   end
 	
 	def create_person(person_type, age, name)
-    puts @all_persons.class
+  
     case person_type
     when '1'
       print 'Has parent permission? [Y/N]: '
@@ -44,7 +42,7 @@ class CreatePerson
     when '2'
       print 'Specialization: '
       specialization = gets.chomp
-      @all_persons.push(Teacher.new(age, name, specialization))
+      @all_persons.push(Teacher.new(age:age, name:name, specialization:specialization))
     else
       puts 'Invalid option'
       add_person_info
@@ -60,9 +58,15 @@ class CreatePerson
   def save_to_file
     # binding.pry
     prepared_data = @all_persons.map { |person| 
+
+      if person.respond_to?(:specialization)
+      {age:person.age,name:person.name,specialization:person.specialization,parent_permission:person.parent_permission}
+    
+      else
       
-      {age:person.age,name:person.name,classroom:person.classroom,parent_permission:person.parent_permission} }
-   
+      {age:person.age,name:person.name,classroom:person.classroom,parent_permission:person.parent_permission} 
+    end
+    }
     HandleData.write('persons',prepared_data)
   end
 
