@@ -30,16 +30,7 @@ class CreatePerson
     end
   end
 
-  def create_person()
-    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
-    person_type = gets.chomp
-
-    print 'Age: '
-    age = gets.chomp
-
-    print 'Name: '
-    name = gets.chomp
-
+  def create_person(person_type:, name:, age:)
     case person_type
     when '1'
       print 'Has parent permission? [Y/N]: '
@@ -60,10 +51,6 @@ class CreatePerson
     end
 
     puts 'Person was created successfully'
-  end
-
-  def get_all_persons
-    @all_persons
   end
 
   def save_to_file

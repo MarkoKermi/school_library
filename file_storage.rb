@@ -9,7 +9,7 @@ class HandleData
       []
     else
       data = File.read(file_name)
-      parsed_data = JSON.parse(data)
+      JSON.parse(data)
     end
   rescue StandardError
     puts "!!#{file_name}file not found !!"

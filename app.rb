@@ -36,11 +36,18 @@ class SchoolApp
   end
 
   def add_person_info
-    @person_controller.create_person
+    print 'Do you want to create a student (1) or a teacher (2)? [Input the number]: '
+    person_type = gets.chomp
+    print 'Age: '
+    age = gets.chomp
+
+    print 'Name: '
+    name = gets.chomp
+    @person_controller.create_person(person_type: person_type, name: name, age: age)
   end
 
   def list_of_people
-    Display_Persons.display_all_persons(@person_controller.all_persons)
+    DisplayPersons.display_all_persons(@person_controller.all_persons)
   end
 
   def rental_creation
@@ -51,7 +58,7 @@ class SchoolApp
     book = @book_controller.all_books[book_index]
 
     puts 'Select a person from following list by number (not ID)'
-    Display_Persons.display_all_persons(@person_controller.all_persons, print_index: true)
+    DisplayPersons.display_all_persons(@person_controller.all_persons, print_index: true)
 
     person_index = gets.chomp.to_i
     person = @person_controller.all_persons[person_index]

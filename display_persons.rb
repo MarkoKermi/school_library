@@ -2,7 +2,7 @@ require './person'
 require './student'
 require './teacher'
 
-class Display_Persons
+class DisplayPersons
   def self.display_all_persons(all_persons, print_index: false)
     if all_persons.empty?
       puts '<<>> No people found. Please add Teachers or Students. <<>>'
