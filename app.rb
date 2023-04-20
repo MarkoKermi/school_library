@@ -5,7 +5,7 @@ require './teacher'
 require './rental'
 require './handle_data'
 require 'json'
-require 'pry'
+
 require './display_persons'
 require './create_person'
 require './create_book'
@@ -14,10 +14,8 @@ require './create_rental'
 
 class SchoolApp
   def initialize
-    # @books_file = HandleData.new('books')
     @people = []
     @rentals = []
-    # @books = @books_file.read.map{ |arr| Book.new(arr['title'], arr['author']) }
     @person_controller = CreatePerson.new
     @book_controller = CreateBook.new
     @rental_controller = CreateRental.new
@@ -72,11 +70,12 @@ class SchoolApp
   def list_of_rentals_person_id
     print 'Enter ID of person: '
     id = gets.chomp.to_i
-
+    puts '================================================================'
     puts 'Rentals: '
     @rental_controller.all_rentals.each do |rental|
       puts "Date: #{rental.date}, Book \"#{rental.book.title}\" by #{rental.book.author}" if rental.person.id == id
     end
+    puts '================================================================'
   end
 
   def exit
