@@ -42,6 +42,15 @@ This is a School Library project.
 
 ## 💻 Getting Started with section <a name="getting-started"></a>
 
+# Installer packages 
+
+- bundle install 
+
+# Run file 
+
+- ruby main.rb 
+
+
 ### Setup
 
 Clone this [repository](https://github.com/MarkoKermi/school_library.git) to your desired folder:
