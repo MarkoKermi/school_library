@@ -25,9 +25,7 @@ class CreateRental
   end
 
   def save_to_file
-    prepared_data = @all_rentals.map do |rental|
-      rental.to_json_custom
-    end
+    prepared_data = @all_rentals.map(&:to_json_custom)
     HandleData.write('rentals', prepared_data)
   end
 end
