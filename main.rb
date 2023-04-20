@@ -12,7 +12,7 @@ def main
       refactor.items(option)
     when 7
       puts 'Thank you for using this app!'
-      refactor.app.exit 
+      refactor.app.exit
       break
     else
       puts 'Ivalid Option.Please Try again.'

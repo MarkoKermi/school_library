@@ -1,10 +1,12 @@
 require './nameable'
+require './json_functionality'
 
 class Person < Nameable
+  include JsonFunctionality
   attr_accessor :name, :age, :parent_permission
   attr_reader :id, :rentals
 
-  def initialize(age:, name:'Unknown', parent_permission: true)
+  def initialize(age: '', name: '', parent_permission: true)
     super()
     @id = Random.rand(1..1000)
     @name = name
@@ -32,3 +34,12 @@ class Person < Nameable
     @age >= 18
   end
 end
+
+# pers = Person.new(name:'Namely Name McNamerson ', age:'20')
+# json_string =  pers.to_json
+
+# puts json_string.class
+# pers1 = Person.new()
+# pers1.from_json(json_string)
+
+# puts pers1.instance_variables
