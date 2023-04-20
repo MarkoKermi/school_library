@@ -1,6 +1,8 @@
 require_relative 'app'
 
 class Refactor
+  attr_reader :app
+
   def initialize
     @app = SchoolApp.new
   end
